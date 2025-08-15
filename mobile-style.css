@@ -1,0 +1,48 @@
+@media screen and (max-width: 768px) {
+  .description-develop {
+    font-size: 30px;
+    text-align: center;
+  }
+  .slogan-develop {
+    text-align: justify;
+    padding: 0px 20px;
+  }
+  .area-softskills {
+    width: 100%;
+  }
+
+  .profile-user {
+    background-color: #16181d;
+    height: 650px;
+    background-size: auto auto;
+  }
+
+  .softskills-container {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    width: 100%;
+  }
+
+  .area-softskills {
+    display: flex;
+    flex-direction: row;
+    width: 1000px;
+    animation: scrollLeft 30s linear infinite;
+  }
+
+  .softskill {
+    display: flex;
+
+    width: 100px;
+  }
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

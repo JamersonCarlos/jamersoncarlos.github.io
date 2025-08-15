@@ -1,106 +1,107 @@
 * {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 body {
-  font-family: 'Inconsolata', monospace;
+  font-family: "Inconsolata", monospace;
 }
 
-.profile-user { 
-    background-image: url(assets/background_section_info.svg);
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-    background-position: center;
-    height: 750px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 10px;
+.profile-user {
+  background-image: url(assets/background_section_info.svg);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center;
+  height: 750px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.profile-user > h2 { 
-    font-weight: lighter;
-    color: #f4f4f4;
-    font-size: 20px;
-    padding-top: 20px;
+.profile-user > h2 {
+  font-weight: lighter;
+  color: #f4f4f4;
+  font-size: 20px;
+  padding-top: 20px;
+  text-align: center;
 }
 
-.profile-user > h2 > span { 
-    font-weight: lighter;
-    color: #E3646E;
-
+.profile-user > h2 > span {
+  font-weight: lighter;
+  color: #e3646e;
 }
 
-.img-profile  { 
-    width: 100px;
-    height: 100px;
-    border-radius: 100%;
-    border: 2px solid #E3646E;
-    padding: 3px;
-    position: relative;
+.img-profile {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  border: 2px solid #e3646e;
+  padding: 3px;
+  position: relative;
 }
 
-.img-profile-content { 
-    background-image: url(assets/profile-photo.jpg);
-    background-repeat: no-repeat;
-    background-position: start center;
-    background-size: cover;
-    width: 100px;
-    height: 100px;
-    border-radius: 100%;
+.img-profile-content {
+  background-image: url(assets/profile-photo.jpg);
+  background-repeat: no-repeat;
+  background-position: start center;
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
 }
 
-.icon-code-svg { 
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    right: -5px;
-    bottom: -5px;
+.icon-code-svg {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: -5px;
+  bottom: -5px;
 }
 
-.description-develop { 
-    font-family: 'Asap', sans-serif;
-    color: white;
-    font-size: 50px;
-    letter-spacing: 3px;
+.description-develop {
+  font-family: "Asap", sans-serif;
+  color: white;
+  font-size: 50px;
+  letter-spacing: 3px;
+  text-align: center;
 }
 
 .slogan-develop {
-    color: #878EA1;
-    width: 550px;
-    text-transform: uppercase;
-    text-align: center;
+  color: #878ea1;
+  max-width: 550px;
+  text-transform: uppercase;
+  text-align: center;
 }
 
-.softskill { 
-    background-color: #292C34;
-    border-radius: 20px;
-    padding: 10px 15px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+.softskill {
+  background-color: #292c34;
+  border-radius: 20px;
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
-.title-softskill { 
-    color: #878EA1;
-    text-transform: uppercase;
-    font-size: 14px;
+.title-softskill {
+  color: #878ea1;
+  text-transform: uppercase;
+  font-size: 14px;
 }
 
-.area-softskills { 
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    width: 60%;
-    margin: 0px auto;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
+.area-softskills {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 60%;
+  margin: 0px auto;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .icon-softskill {
@@ -110,116 +111,139 @@ body {
   mask-size: contain;
 }
 
-.js { 
-  background-color: #f0db4f; 
-  -webkit-mask: url('https://simpleicons.org/icons/javascript.svg') no-repeat center;
-  mask: url('https://simpleicons.org/icons/javascript.svg') no-repeat center;
+.js {
+  background-color: #f0db4f;
+  -webkit-mask: url("https://simpleicons.org/icons/javascript.svg") no-repeat
+    center;
+  mask: url("https://simpleicons.org/icons/javascript.svg") no-repeat center;
 }
 
-.dart { 
-  background-color: #0175C2; 
-  -webkit-mask: url('https://simpleicons.org/icons/dart.svg') no-repeat center;
-  mask: url('https://simpleicons.org/icons/dart.svg') no-repeat center;
+.dart {
+  background-color: #0175c2;
+  -webkit-mask: url("https://simpleicons.org/icons/dart.svg") no-repeat center;
+  mask: url("https://simpleicons.org/icons/dart.svg") no-repeat center;
 }
 
 .css {
-    background-color: #663399;
-    -webkit-mask: url('https://simpleicons.org/icons/css.svg') no-repeat center;
-    mask: url('https://simpleicons.org/icons/css.svg') no-repeat center;
+  background-color: #663399;
+  -webkit-mask: url("https://simpleicons.org/icons/css.svg") no-repeat center;
+  mask: url("https://simpleicons.org/icons/css.svg") no-repeat center;
 }
 
 .html {
-    background-color: #e34c26;
-    -webkit-mask: url('https://simpleicons.org/icons/html5.svg') no-repeat center;
-    mask: url('https://simpleicons.org/icons/html5.svg') no-repeat center;
+  background-color: #e34c26;
+  -webkit-mask: url("https://simpleicons.org/icons/html5.svg") no-repeat center;
+  mask: url("https://simpleicons.org/icons/html5.svg") no-repeat center;
 }
 
 .ruby {
-    background-color: #cc342d;
-    -webkit-mask: url('https://simpleicons.org/icons/ruby.svg') no-repeat center;
-    mask: url('https://simpleicons.org/icons/ruby.svg') no-repeat center;
+  background-color: #cc342d;
+  -webkit-mask: url("https://simpleicons.org/icons/ruby.svg") no-repeat center;
+  mask: url("https://simpleicons.org/icons/ruby.svg") no-repeat center;
 }
 
 .python {
-    background-color: #3776ab;
-    -webkit-mask: url('https://simpleicons.org/icons/python.svg') no-repeat center;
-    mask: url('https://simpleicons.org/icons/python.svg') no-repeat center;
+  background-color: #3776ab;
+  -webkit-mask: url("https://simpleicons.org/icons/python.svg") no-repeat center;
+  mask: url("https://simpleicons.org/icons/python.svg") no-repeat center;
 }
 
 .java {
   background-color: #007396;
-  -webkit-mask: url('https://simpleicons.org/icons/openjdk.svg') no-repeat center;
-  mask: url('https://simpleicons.org/icons/openjdk.svg') no-repeat center;
+  -webkit-mask: url("https://simpleicons.org/icons/openjdk.svg") no-repeat
+    center;
+  mask: url("https://simpleicons.org/icons/openjdk.svg") no-repeat center;
 }
 
 .react {
-    background-color: #61dafb;
-    -webkit-mask: url('https://simpleicons.org/icons/react.svg') no-repeat center;
-    mask: url('https://simpleicons.org/icons/react.svg') no-repeat center;
+  background-color: #61dafb;
+  -webkit-mask: url("https://simpleicons.org/icons/react.svg") no-repeat center;
+  mask: url("https://simpleicons.org/icons/react.svg") no-repeat center;
 }
 
 .angular {
-    background-color: #dd0031;
-    -webkit-mask: url('https://simpleicons.org/icons/angular.svg') no-repeat center;
-    mask: url('https://simpleicons.org/icons/angular.svg') no-repeat center;
+  background-color: #dd0031;
+  -webkit-mask: url("https://simpleicons.org/icons/angular.svg") no-repeat
+    center;
+  mask: url("https://simpleicons.org/icons/angular.svg") no-repeat center;
 }
 
 .typescript {
-    background-color: #3178c6;
-    -webkit-mask: url('https://simpleicons.org/icons/typescript.svg') no-repeat center;
-    mask: url('https://simpleicons.org/icons/typescript.svg') no-repeat center;
+  background-color: #3178c6;
+  -webkit-mask: url("https://simpleicons.org/icons/typescript.svg") no-repeat
+    center;
+  mask: url("https://simpleicons.org/icons/typescript.svg") no-repeat center;
 }
 
 .spring-boot {
-    background-color: #6db33f;
-    -webkit-mask: url('https://simpleicons.org/icons/spring.svg') no-repeat center;
-    mask: url('https://simpleicons.org/icons/spring.svg') no-repeat center;
+  background-color: #6db33f;
+  -webkit-mask: url("https://simpleicons.org/icons/spring.svg") no-repeat center;
+  mask: url("https://simpleicons.org/icons/spring.svg") no-repeat center;
 }
 
 .django {
-    background-color: #092e20;
-    -webkit-mask: url('https://simpleicons.org/icons/django.svg') no-repeat center;
-    mask: url('https://simpleicons.org/icons/django.svg') no-repeat center;
+  background-color: #092e20;
+  -webkit-mask: url("https://simpleicons.org/icons/django.svg") no-repeat center;
+  mask: url("https://simpleicons.org/icons/django.svg") no-repeat center;
 }
 
 .flask {
-    background-color: #000000;
-    -webkit-mask: url('https://simpleicons.org/icons/flask.svg') no-repeat center;
-    mask: url('https://simpleicons.org/icons/flask.svg') no-repeat center;
+  background-color: #000000;
+  -webkit-mask: url("https://simpleicons.org/icons/flask.svg") no-repeat center;
+  mask: url("https://simpleicons.org/icons/flask.svg") no-repeat center;
 }
 
 .mongodb {
-    background-color: #47a248;
-    -webkit-mask: url('https://simpleicons.org/icons/mongodb.svg') no-repeat center;
-    mask: url('https://simpleicons.org/icons/mongodb.svg') no-repeat center;
+  background-color: #47a248;
+  -webkit-mask: url("https://simpleicons.org/icons/mongodb.svg") no-repeat
+    center;
+  mask: url("https://simpleicons.org/icons/mongodb.svg") no-repeat center;
 }
 
 .mysql {
-    background-color: #4479a1;
-    -webkit-mask: url('https://simpleicons.org/icons/mysql.svg') no-repeat center;
-    mask: url('https://simpleicons.org/icons/mysql.svg') no-repeat center;
+  background-color: #4479a1;
+  -webkit-mask: url("https://simpleicons.org/icons/mysql.svg") no-repeat center;
+  mask: url("https://simpleicons.org/icons/mysql.svg") no-repeat center;
 }
 
 .postgresql {
-    background-color: #336791;
-    -webkit-mask: url('https://simpleicons.org/icons/postgresql.svg') no-repeat center;
-    mask: url('https://simpleicons.org/icons/postgresql.svg') no-repeat center;
+  background-color: #336791;
+  -webkit-mask: url("https://simpleicons.org/icons/postgresql.svg") no-repeat
+    center;
+  mask: url("https://simpleicons.org/icons/postgresql.svg") no-repeat center;
 }
 
 .docker {
-    background-color: #2496ed;
-    -webkit-mask: url('https://simpleicons.org/icons/docker.svg') no-repeat center;
-    mask: url('https://simpleicons.org/icons/docker.svg') no-repeat center;
+  background-color: #2496ed;
+  -webkit-mask: url("https://simpleicons.org/icons/docker.svg") no-repeat center;
+  mask: url("https://simpleicons.org/icons/docker.svg") no-repeat center;
 }
 
 .flutter {
-    background-color: #02569b;
-    -webkit-mask: url('https://simpleicons.org/icons/flutter.svg') no-repeat center;
-    mask: url('https://simpleicons.org/icons/flutter.svg') no-repeat center;
+  background-color: #02569b;
+  -webkit-mask: url("https://simpleicons.org/icons/flutter.svg") no-repeat
+    center;
+  mask: url("https://simpleicons.org/icons/flutter.svg") no-repeat center;
 }
 
 .wordpress {
-    background-color: #21759b;
-    -webkit-mask: url('https://simpleicons.org/icons/wordpress.svg') no-repeat center;
-    mask: url('https://simpleicons.org/icons/wordpress.svg') no-repeat center;
+  background-color: #21759b;
+  -webkit-mask: url("https://simpleicons.org/icons/wordpress.svg") no-repeat
+    center;
+  mask: url("https://simpleicons.org/icons/wordpress.svg") no-repeat center;
 }
+
+.ruby-on-rails {
+  background-color: #D30001;
+  -webkit-mask: url("https://simpleicons.org/icons/rubyonrails.svg") no-repeat
+    center;
+  mask: url("https://simpleicons.org/icons/rubyonrails.svg") no-repeat center;
+}
+
+.linux {
+  background-color: #FCC624;
+  -webkit-mask: url("https://simpleicons.org/icons/linux.svg") no-repeat
+    center;
+  mask: url("https://simpleicons.org/icons/linux.svg") no-repeat center;
+}
+
