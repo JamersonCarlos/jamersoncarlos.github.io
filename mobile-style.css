@@ -36,9 +36,17 @@
 
     width: 100px;
   }
-  
-  .item-contact { 
-    width: 230px;
+
+  .item-contact {
+    width: 250px;
+  }
+
+  .service-content {
+    width: 80%;
+  }
+
+  .section-contatos > p {
+    padding: 20px;
   }
 }
 
