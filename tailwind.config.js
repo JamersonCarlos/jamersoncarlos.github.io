@@ -5,5 +5,5 @@ export default {
     extend: {},
   },
   plugins: [],
-  base: "/jamersoncarlos.github.io/",
+  base: "/",
 };
