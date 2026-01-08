@@ -301,9 +301,11 @@ const AboutSection = () => {
             </motion.div>
           ))}
         </div>
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="mt-20 flex flex-wrap justify-center gap-16 md:gap-25">
           {stats.map((stat) => (
-            <div key={stat.label} className="text-center">
+            <div key={stat.label} className="text-center w-100 md:w-auto">
+              {" "}
+              {/* w-32 garante um tamanho mínimo */}
               <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#00f5d4] to-[#00bbf9] bg-clip-text text-transparent mb-2">
                 {stat.number}
               </div>
