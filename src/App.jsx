@@ -15,8 +15,8 @@ import {
   faBars,
   faTimes,
   faMapMarkerAlt,
+  faExpand,
 } from "@fortawesome/free-solid-svg-icons";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 // Importação dos dados
 import {
@@ -442,10 +442,34 @@ const ExperienceSection = () => {
 const ProjectsSection = () => {
   const [activeCategory, setActiveCategory] = useState("all");
   const [hoveredProject, setHoveredProject] = useState(null);
+  const [expandedProjects, setExpandedProjects] = useState(new Set());
+  const [selectedProject, setSelectedProject] = useState(null);
   const filteredProjects =
     activeCategory === "all"
       ? projects
       : projects.filter((p) => p.category === activeCategory);
+
+  const toggleExpand = (id) => {
+    setExpandedProjects((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+
+  useEffect(() => {
+    if (!selectedProject) return;
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") setSelectedProject(null);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [selectedProject]);
 
   return (
     <section id="projects" className="relative py-32 px-6 bg-[#0a0a0f]">
@@ -498,31 +522,57 @@ const ProjectsSection = () => {
                 onHoverEnd={() => setHoveredProject(null)}
                 className="group relative rounded-2xl overflow-hidden bg-[#12121a] border border-white/5 hover:border-[#00f5d4]/30 transition-all duration-500"
               >
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#12121a] via-transparent to-transparent" />
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: hoveredProject === project.id ? 1 : 0 }}
-                    className="absolute inset-0 bg-[#0a0a0f]/80 backdrop-blur-sm flex items-center justify-center gap-4"
-                  >
-                    <a
-                      href={project.github}
-                      className="p-3 rounded-full bg-white/10 text-white hover:bg-[#00f5d4] hover:text-[#0a0a0f] transition-colors"
+                <div
+                  className={`relative h-48 overflow-hidden flex items-center justify-center ${
+                    project.image ? "cursor-pointer" : ""
+                  }`}
+                  style={{
+                    background: project.image
+                      ? undefined
+                      : `linear-gradient(135deg, ${project.color}25, ${project.color}05)`,
+                  }}
+                  onClick={() => project.image && setSelectedProject(project)}
+                >
+                  {project.image ? (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                  ) : (
+                    <project.icon
+                      size={56}
+                      style={{ color: project.color }}
+                      className="transition-transform duration-700 group-hover:scale-110"
+                    />
+                  )}
+                  {project.image && (
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#12121a] via-transparent to-transparent" />
+                  )}
+                  {(project.image || project.live) && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: hoveredProject === project.id ? 1 : 0 }}
+                      className="absolute inset-0 bg-[#0a0a0f]/80 backdrop-blur-sm flex items-center justify-center gap-4"
                     >
-                      <FontAwesomeIcon icon={faGithub} size="lg" />
-                    </a>
-                    <a
-                      href={project.live}
-                      className="p-3 rounded-full bg-white/10 text-white hover:bg-[#00f5d4] hover:text-[#0a0a0f] transition-colors"
-                    >
-                      <FontAwesomeIcon icon={faExternalLinkAlt} size="lg" />
-                    </a>
-                  </motion.div>
+                      {project.image && (
+                        <span className="p-3 rounded-full bg-white/10 text-white">
+                          <FontAwesomeIcon icon={faExpand} size="lg" />
+                        </span>
+                      )}
+                      {project.live && (
+                        <a
+                          href={project.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="p-3 rounded-full bg-white/10 text-white hover:bg-[#00f5d4] hover:text-[#0a0a0f] transition-colors"
+                        >
+                          <FontAwesomeIcon icon={faExternalLinkAlt} size="lg" />
+                        </a>
+                      )}
+                    </motion.div>
+                  )}
                   {project.featured && (
                     <div className="absolute top-3 right-3 px-2 py-1 rounded-full bg-[#00f5d4]/20 border border-[#00f5d4]/30 text-[#00f5d4] text-xs font-medium">
                       Destaque
@@ -542,9 +592,19 @@ const ProjectsSection = () => {
                       {project.title}
                     </h3>
                   </div>
-                  <p className="text-zinc-500 text-sm mb-4 line-clamp-2">
+                  <p
+                    className={`text-zinc-500 text-sm mb-1 ${
+                      expandedProjects.has(project.id) ? "" : "line-clamp-3"
+                    }`}
+                  >
                     {project.description}
                   </p>
+                  <button
+                    onClick={() => toggleExpand(project.id)}
+                    className="text-[#00f5d4] text-xs font-medium mb-4 hover:underline"
+                  >
+                    {expandedProjects.has(project.id) ? "Ler menos" : "Ler mais"}
+                  </button>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
                       <span
@@ -561,6 +621,53 @@ const ProjectsSection = () => {
           </AnimatePresence>
         </motion.div>
       </div>
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedProject(null)}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-[#0a0a0f]/95 backdrop-blur-md p-6"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative max-w-5xl w-full"
+            >
+              <button
+                onClick={() => setSelectedProject(null)}
+                className="absolute -top-12 right-0 p-2 rounded-lg bg-white/10 text-white hover:bg-[#00f5d4] hover:text-[#0a0a0f] transition-colors"
+              >
+                <FontAwesomeIcon icon={faTimes} size="lg" />
+              </button>
+              <img
+                src={selectedProject.image}
+                alt={selectedProject.title}
+                className="w-full max-h-[75vh] object-contain rounded-2xl border border-white/10"
+              />
+              <div className="mt-4 text-center">
+                <h3 className="text-white text-xl font-semibold">
+                  {selectedProject.title}
+                </h3>
+                {selectedProject.live && (
+                  <a
+                    href={selectedProject.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 mt-3 text-[#00f5d4] text-sm font-medium hover:underline"
+                  >
+                    Acessar sistema
+                    <FontAwesomeIcon icon={faExternalLinkAlt} size="sm" />
+                  </a>
+                )}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
